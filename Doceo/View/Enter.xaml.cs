@@ -22,7 +22,7 @@ namespace Doceo.View
         public Enter()
         {
             InitializeComponent();
-            DataContext = vm;
+            this.DataContext = vm;
         }
         private void PasswordBox_PasswordChanged(object sender, RoutedEventArgs e)
         {
