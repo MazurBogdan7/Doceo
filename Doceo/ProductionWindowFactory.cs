@@ -12,8 +12,6 @@ namespace Doceo
         void openMainDoceoWindProgramm(List<Model.EnterModel.user> User);
         
 
-
-
     }
     public class ProductionWindowFactory : IWindowFactory
     {

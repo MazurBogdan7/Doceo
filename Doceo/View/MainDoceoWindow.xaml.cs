@@ -16,9 +16,25 @@ namespace Doceo.View
 {
     public partial class MainDoceoWindow : Window
     {
+        ViewModel.MainDoceoVM vm = new ViewModel.MainDoceoVM();
         public MainDoceoWindow(List<Model.EnterModel.user> User)
         {
             InitializeComponent();
+            this.DataContext = vm;
+        }
+
+        private void GoToCourse(object sender, RoutedEventArgs e)
+        {
+            List<string> nameLessions = vm.GetLessions();
+            StackPanel panelLessons = new StackPanel();
+            for (int i = 0; i != 5; i++)
+            {
+                Button button = new Button();
+                button.Content = nameLessions[i];
+                panelLessons.Children.Add(button);
+            }
+
+            MainFrame.Content = new PageForCours(panelLessons);
         }
     }
 }

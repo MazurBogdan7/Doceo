@@ -3,19 +3,19 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Doceo.View"
+        xmlns:local="clr-namespace:Doceo.View" xmlns:viewmodel="clr-namespace:Doceo.ViewModel" d:DataContext="{d:DesignInstance Type=viewmodel:MainDoceoVM}"
         mc:Ignorable="d"
         Title="MainDoceoWindow" Height="450" Width="800">
     <Window.Resources>
         <Style x:Key="nominate" TargetType="{x:Type Border}">
             <Style.Triggers>
                 <Trigger Property="IsMouseOver" Value="False">
-                    <Setter Property="Width" Value="20"></Setter>
+                    <Setter Property="Height" Value="50"></Setter>
                     
                 </Trigger>
                 <Trigger Property="IsMouseOver" Value="True">
                     <Setter Property="Opacity" Value="1" />
-                    <Setter Property="Width" Value="150"></Setter>
+                    <Setter Property="Height" Value="50"></Setter>
                     
                 </Trigger>
             </Style.Triggers>
@@ -39,19 +39,19 @@
         </Style>
     </Window.Resources>
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="auto"></ColumnDefinition>
-            <ColumnDefinition></ColumnDefinition>
-        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
 
         <Border DockPanel.Dock="Top" Background="#7fc7ff" Style="{StaticResource nominate}" >
-            <StackPanel Grid.Column="0"  Style="{StaticResource nominateStack}">
+            <StackPanel Grid.Row="0" Orientation="Horizontal"  Style="{StaticResource nominateStack}">
                 <TextBlock Text="Курсы"  Style="{StaticResource TextBlInStack}"></TextBlock>
-                <Button Content="C++" Style="{StaticResource ButtonInStack}"></Button>
+                <Button Content="C++" Style="{StaticResource ButtonInStack}" Click="GoToCourse" Command="{Binding GetButtonLessions}"></Button>
         
             </StackPanel>
         </Border>
-        <Frame Grid.Column="1" Background="#7fc7ff" Width="auto"></Frame>
+        <Frame x:Name="MainFrame" Grid.Row="1" Background="#7fc7ff" Width="auto"></Frame>
     </Grid>
     
 </Window>
