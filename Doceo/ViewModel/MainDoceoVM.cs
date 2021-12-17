@@ -14,6 +14,12 @@ namespace Doceo.ViewModel
             
             return namesLessions;
         }
-        
+
+        public string GetLessionContent(int numbLession)
+        {
+            string lession = "";
+
+            return lession;
+        }
     }
 }

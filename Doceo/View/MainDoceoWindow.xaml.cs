@@ -27,14 +27,20 @@ namespace Doceo.View
         {
             List<string> nameLessions = vm.GetLessions();
             StackPanel panelLessons = new StackPanel();
-            for (int i = 0; i != 5; i++)
+            for (int i = 0; i != nameLessions.Count; i++)
             {
                 Button button = new Button();
                 button.Content = nameLessions[i];
+                button.Name = $"{i}";
                 panelLessons.Children.Add(button);
             }
 
             MainFrame.Content = new PageForCours(panelLessons);
+        }
+        private void GoToLesson(object sender, RoutedEventArgs e)
+        {
+            string LessionContent = vm.GetLessionContent((int)((Button)sender).Tag);
+            MainFrame.Content = new PageWithLesson(LessionContent);
         }
     }
 }

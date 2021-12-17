@@ -11,8 +11,8 @@ namespace Doceo.Model
 
         public class user 
         {
-            string _login;
-            string _password;
+            private string _login;
+            private string _password;
             public string login
             {
                 get { return _login; }
