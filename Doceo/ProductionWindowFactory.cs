@@ -10,7 +10,7 @@ namespace Doceo
     public interface IWindowFactory
     {
         void openMainDoceoWindProgramm(List<Model.EnterModel.user> User);
-        
+        void openRegisterWindow();
 
     }
     public class ProductionWindowFactory : IWindowFactory
@@ -22,7 +22,12 @@ namespace Doceo
            Application.Current.MainWindow.Close();
            window.Show();
         }
-       
+        public void openRegisterWindow()
+        {
+            View.Register window = new View.Register();
+            Application.Current.MainWindow.Close();
+            window.Show();
+        }
 
 
     }

@@ -66,6 +66,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="DataBase\DoceoContext.cs" />
+    <Compile Include="DataBase\MyContextInitializer.cs" />
     <Compile Include="Model\DoceoModel.cs" />
     <Compile Include="Model\EnterModel.cs" />
     <Compile Include="ProductionWindowFactory.cs" />

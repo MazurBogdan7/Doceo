@@ -14,7 +14,7 @@
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="*" MinHeight ="250"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <StackPanel Grid.Column="1" Grid.Row="1">
@@ -27,7 +27,8 @@
                 <PasswordBox x:Name="pasw" PasswordChar="*" MinWidth="300" Margin="5,0,0,0" PasswordChanged="PasswordBox_PasswordChanged" />
             </StackPanel>
             <Button Content="Вход" Background="#7fc7ff" BorderThickness="0" Margin="0,5,0,0" Command="{Binding EntrUs}"/>
-            <TextBlock Margin="0,5,0,0" Text="{Binding messeg}" Height="40" TextAlignment="Center" />
+            <Button Content="Регистрация" Background="#7fc7ff" BorderThickness="0" Margin="0,5,0,0" Command="{Binding Register}"/>
+            <TextBlock Margin="0,5,0,0" Text="{Binding messeg}" Height="80" TextAlignment="Center" />
 
         </StackPanel>
 

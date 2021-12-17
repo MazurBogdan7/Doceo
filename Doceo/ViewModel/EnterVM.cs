@@ -34,7 +34,11 @@ namespace Doceo.ViewModel
             windowFactory.openMainDoceoWindProgramm(User);
 
         }
-
+        public virtual void DoOpenRegisterWindow()
+        {
+            IWindowFactory windowFactory = Opwind;
+            windowFactory.openRegisterWindow();
+        }
         
         public bool checkPusw(string chPasw)
         {
@@ -68,13 +72,13 @@ namespace Doceo.ViewModel
         public void EnterUser(object parametr)
         {
             
-            int rez = 0;
+            bool rez = false;
             if (login != "" && password != null)
             {
                 rez = Model.CheckUser(login, password);
             }
 
-            if (rez == 1)
+            if (rez)
             {
 
                 DoOpenMainDoceoWindow(User);
@@ -83,15 +87,35 @@ namespace Doceo.ViewModel
             else
             {
                 messeg = "Неверный логин или пароль." + Environment.NewLine +
-                    "Логин должен быть вввиде почты, а пароль не должен содержать спец символы";
+                    "Логин должен быть вввиде почты, а пароль не должен содержать спец символы"+ Environment.NewLine +
+                    "либо попробуйте зарегестрироваться";
             }
 
         }
         private ICommand _EntrUs;
         public ICommand EntrUs => _EntrUs ?? (_EntrUs = new RelayCommand(EnterUser));
 
-        
+        public void RegisterUs(object parametr)
+        {
+            bool rez = false;
+            if (login != "" && password != null)
+            {
+                rez = Model.CheckUser(login, password);
+            }
 
+            if (rez)
+            {
 
+                messeg = "Вы уже зарегестрированны";
+
+            }
+            else
+            {
+                DoOpenRegisterWindow();
+            }
+
+        }
+        private ICommand _RegisterUs;
+        public ICommand Register => _RegisterUs ?? (_RegisterUs = new RelayCommand(RegisterUs));
     }
 }

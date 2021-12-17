@@ -8,6 +8,10 @@ namespace Doceo.DataBase
 {
     class DoceoContext:DbContext
     {
+        static DoceoContext()
+        {
+            Database.SetInitializer<DoceoContext>(new MyContextInitializer());
+        }
         public DoceoContext()
             :base("DBConnection")
         { }

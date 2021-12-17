@@ -15,9 +15,6 @@ using System.Windows.Shapes;
 
 namespace Doceo.View
 {
-    /// <summary>
-    /// Логика взаимодействия для PageWithLesson.xaml
-    /// </summary>
     public partial class PageWithLesson : Page
     {
         public PageWithLesson(string LessionContent)
