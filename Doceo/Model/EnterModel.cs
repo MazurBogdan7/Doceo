@@ -39,7 +39,7 @@ namespace Doceo.Model
         {
             using (DataBase.DoceoContext db = new DataBase.DoceoContext())
             {
-                IQueryable<user> check = db.Users.Where(p => p.login == log);
+                IQueryable<user> check = db.Users.Where(p => p.login == log && p.password == password);
                 int l = check.Count();
                 return !(l == 0);
                 

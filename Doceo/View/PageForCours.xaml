@@ -10,7 +10,9 @@
 
     <Grid Background="AliceBlue">
         <Border DockPanel.Dock="Top" Background="Aqua" Margin="50">
-            <StackPanel x:Name="Lessons" ></StackPanel>
+            <StackPanel x:Name="Lessons" ScrollViewer.VerticalScrollBarVisibility="Auto">
+                
+            </StackPanel>
         </Border>
 
     </Grid>

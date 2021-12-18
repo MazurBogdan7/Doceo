@@ -80,6 +80,23 @@ namespace Doceo.Model
                 set { _text = value; }
             }
         }
+        public List<string> GetLessonsFromDB(string nameCurse)
+        {
+            using (DataBase.DoceoContext db = new DataBase.DoceoContext())
+            {
+                List<string> LessonsName = db.Lessons.Where(L => L.Curse.name == nameCurse).Select(L => L.name).ToList();
 
+                return LessonsName;
+            }
+        }
+        public string GetLessonsString(int numberLesson)
+        {
+            using (DataBase.DoceoContext db = new DataBase.DoceoContext())
+            {
+                List<string> LessonText = db.Lessons.Where(L => L.number == numberLesson).Select(L => L.text).ToList();
+
+                return LessonText[0];
+            }
+        }
     }
 }

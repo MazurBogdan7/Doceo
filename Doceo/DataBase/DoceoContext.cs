@@ -10,7 +10,7 @@ namespace Doceo.DataBase
     {
         static DoceoContext()
         {
-            Database.SetInitializer<DoceoContext>(new MyContextInitializer());
+            Database.SetInitializer(new MyContextInitializer());
         }
         public DoceoContext()
             :base("DBConnection")

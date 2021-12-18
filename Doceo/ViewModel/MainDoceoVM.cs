@@ -8,16 +8,17 @@ namespace Doceo.ViewModel
 {
     class MainDoceoVM : PropertyChangedFactory
     {
-        public List<string> GetLessions()
+        Model.DoceoModel Model = new Model.DoceoModel();
+        public List<string> GetLessions(string nameCurse)
         {
             List<string> namesLessions = new List<string>();
-            
+            namesLessions = Model.GetLessonsFromDB(nameCurse);
             return namesLessions;
         }
 
         public string GetLessionContent(int numbLession)
         {
-            string lession = "";
+            string lession = Model.GetLessonsString(numbLession);
 
             return lession;
         }

@@ -47,7 +47,7 @@
         <Border DockPanel.Dock="Top" Background="#7fc7ff" Style="{StaticResource nominate}" >
             <StackPanel Grid.Row="0" Orientation="Horizontal"  Style="{StaticResource nominateStack}">
                 <TextBlock Text="Курсы"  Style="{StaticResource TextBlInStack}"></TextBlock>
-                <Button Content="C++" Style="{StaticResource ButtonInStack}" Click="GoToCourse" Command="{Binding GetButtonLessions}"></Button>
+                <Button x:Name="Curse1" Content="C++" Style="{StaticResource ButtonInStack}" Click="GoToCourse"></Button>
         
             </StackPanel>
         </Border>

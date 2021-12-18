@@ -25,7 +25,16 @@ namespace Doceo.View
         {
             InitializeComponent();
             this.DataContext = vm;
-            Lessons = sp;
+            List<Button> buttonsLessons = new List<Button>();
+            for (int i = 0; i < sp.Children.Count; i++) {
+                Button button = (Button)sp.Children[i];
+                buttonsLessons.Add(button);
+            }
+            sp.Children.Clear();
+            for (int i = 0; i < buttonsLessons.Count; i++)
+            {
+                Lessons.Children.Add(buttonsLessons[i]);
+            }
         }
     }
 }

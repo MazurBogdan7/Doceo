@@ -25,13 +25,15 @@ namespace Doceo.View
 
         private void GoToCourse(object sender, RoutedEventArgs e)
         {
-            List<string> nameLessions = vm.GetLessions();
+
+            List<string> nameLessions = vm.GetLessions((string)((Button)sender).Content);
             StackPanel panelLessons = new StackPanel();
             for (int i = 0; i != nameLessions.Count; i++)
             {
                 Button button = new Button();
                 button.Content = nameLessions[i];
-                button.Name = $"{i}";
+                button.Name = $"lesson{i + 1}";
+                button.Click += GoToLesson;
                 panelLessons.Children.Add(button);
             }
 
@@ -39,7 +41,8 @@ namespace Doceo.View
         }
         private void GoToLesson(object sender, RoutedEventArgs e)
         {
-            string LessionContent = vm.GetLessionContent((int)((Button)sender).Tag);
+            int numbLesson = ((Button)sender).Name[6]-'0';
+            string LessionContent = vm.GetLessionContent(numbLesson);
             MainFrame.Content = new PageWithLesson(LessionContent);
         }
     }
