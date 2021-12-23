@@ -8,7 +8,21 @@ namespace Doceo.ViewModel
 {
     class MainDoceoVM : PropertyChangedFactory
     {
+        private string _messeg;
+        public string messeg
+        {
+            get => _messeg;
+            set
+            {
+
+                _messeg = value;
+                OnPropertyChanged(nameof(messeg));
+            }
+        }
+
+        private
         Model.DoceoModel Model = new Model.DoceoModel();
+
         public List<string> GetLessions(string nameCurse)
         {
             List<string> namesLessions = new List<string>();

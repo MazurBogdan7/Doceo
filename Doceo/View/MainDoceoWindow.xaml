@@ -31,11 +31,13 @@
             <Setter Property="FontSize" Value="20"></Setter>
             <Setter Property="Margin" Value="10" ></Setter>
             <Setter Property="FontFamily" Value="Tunga"></Setter>
+            <Setter Property="Padding" Value="6"></Setter>
         </Style>
         <Style x:Key="ButtonInStack" TargetType="Button" >
             <Setter Property="FontSize" Value="20"></Setter>
             <Setter Property="Margin" Value="10" ></Setter>
             <Setter Property="FontFamily" Value="Tunga"></Setter>
+            <Setter Property="Padding" Value="6"></Setter>
         </Style>
     </Window.Resources>
     <Grid>
@@ -44,14 +46,18 @@
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
 
-        <Border DockPanel.Dock="Top" Background="#7fc7ff" Style="{StaticResource nominate}" >
+        <Border DockPanel.Dock="Top" Background="#1faee9" Style="{StaticResource nominate}" >
+            <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Hidden">
             <StackPanel Grid.Row="0" Orientation="Horizontal"  Style="{StaticResource nominateStack}">
-                <TextBlock Text="Курсы"  Style="{StaticResource TextBlInStack}"></TextBlock>
-                <Button x:Name="Curse1" Content="C++" Style="{StaticResource ButtonInStack}" Click="GoToCourse"></Button>
+                <Button x:Name="Office" Content="Личный кабинет" Style="{StaticResource ButtonInStack}" Background="#ffcc00" Click="GoToOffice"></Button>
+                <TextBlock Text="Курсы:"  Style="{StaticResource TextBlInStack}" ></TextBlock>
+                <Button x:Name="Curse1" Content="C++" Style="{StaticResource ButtonInStack}" Background="#ffcc00" Click="GoToCourse" ></Button>
         
             </StackPanel>
+            </ScrollViewer>
         </Border>
-        <Frame x:Name="MainFrame" Grid.Row="1" Background="#7fc7ff" Width="auto"></Frame>
+        <Frame NavigationUIVisibility="Hidden" Source="MainPage.xaml" x:Name="MainFrame" Grid.Row="1" Background="#7fc7ff" Width="auto">
+        </Frame>
     </Grid>
     
 </Window>

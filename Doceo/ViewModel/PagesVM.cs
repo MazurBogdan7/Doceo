@@ -8,6 +8,9 @@ namespace Doceo.ViewModel
 {
     class PagesVM : PropertyChangedFactory
     {
-       
+
+        public string login { get; set; }
+        public string password { get; set; }
+
     }
 }

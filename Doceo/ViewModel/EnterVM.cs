@@ -13,7 +13,7 @@ namespace Doceo.ViewModel
         
         public Model.EnterModel Model = new Model.EnterModel();
         ProductionWindowFactory Opwind = new ProductionWindowFactory();
-        public List<Model.EnterModel.user> User;
+        public Model.EnterModel.user User;
         public string login { get; set; }
         public string password { get; set; }
         private string _messeg;
@@ -28,7 +28,7 @@ namespace Doceo.ViewModel
             }
         }
 
-        public virtual void DoOpenMainDoceoWindow(List<Model.EnterModel.user> User)
+        public virtual void DoOpenMainDoceoWindow(Model.EnterModel.user User)
         {
             IWindowFactory windowFactory = Opwind;
             windowFactory.openMainDoceoWindProgramm(User);
@@ -72,15 +72,15 @@ namespace Doceo.ViewModel
         public void EnterUser(object parametr)
         {
             
-            bool rez = false;
+            
             if (login != "" && password != null)
             {
-                rez = Model.CheckUser(login, password);
+                User = Model.CheckUser(login, password);
             }
 
-            if (rez)
+            if (User != null)
             {
-
+                
                 DoOpenMainDoceoWindow(User);
                
             }
@@ -97,13 +97,13 @@ namespace Doceo.ViewModel
 
         public void RegisterUs(object parametr)
         {
-            bool rez = false;
+            
             if (login != "" && password != null)
             {
-                rez = Model.CheckUser(login, password);
+                User = Model.CheckUser(login, password);
             }
 
-            if (rez)
+            if (User != null)
             {
 
                 messeg = "Вы уже зарегестрированны";

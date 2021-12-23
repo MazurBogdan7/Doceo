@@ -78,6 +78,12 @@
     <Compile Include="View\MainDoceoWindow.xaml.cs">
       <DependentUpon>MainDoceoWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\MainPage.xaml.cs">
+      <DependentUpon>MainPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\MainUserOffice.xaml.cs">
+      <DependentUpon>MainUserOffice.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\PageForCours.xaml.cs">
       <DependentUpon>PageForCours.xaml</DependentUpon>
     </Compile>
@@ -100,6 +106,14 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="View\MainDoceoWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\MainPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\MainUserOffice.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

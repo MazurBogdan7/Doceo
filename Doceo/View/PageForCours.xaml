@@ -8,11 +8,13 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="PageForCours">
 
-    <Grid Background="AliceBlue">
-        <Border DockPanel.Dock="Top" Background="Aqua" Margin="50">
+    <Grid Background="#7fc7ff">
+        <Border DockPanel.Dock="Top" Background="#7fc7ff" Margin="50">
+            <ScrollViewer VerticalScrollBarVisibility="Auto">
             <StackPanel x:Name="Lessons" ScrollViewer.VerticalScrollBarVisibility="Auto">
-                
-            </StackPanel>
+                    <TextBlock Text="Уроки" FontSize="25" TextAlignment="Center"></TextBlock>
+                </StackPanel>
+            </ScrollViewer>
         </Border>
 
     </Grid>

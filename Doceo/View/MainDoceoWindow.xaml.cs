@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Doceo.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,10 +18,14 @@ namespace Doceo.View
     public partial class MainDoceoWindow : Window
     {
         ViewModel.MainDoceoVM vm = new ViewModel.MainDoceoVM();
-        public MainDoceoWindow(List<Model.EnterModel.user> User)
+
+        public EnterModel.user User { get; private set; }
+
+        public MainDoceoWindow(Model.EnterModel.user User)
         {
             InitializeComponent();
             this.DataContext = vm;
+            this.User = User;
         }
 
         private void GoToCourse(object sender, RoutedEventArgs e)
@@ -29,15 +34,20 @@ namespace Doceo.View
             List<string> nameLessions = vm.GetLessions((string)((Button)sender).Content);
             StackPanel panelLessons = new StackPanel();
             for (int i = 0; i != nameLessions.Count; i++)
-            {
+            {   
                 Button button = new Button();
                 button.Content = nameLessions[i];
                 button.Name = $"lesson{i + 1}";
                 button.Click += GoToLesson;
+                button.Background = new SolidColorBrush(Color.FromRgb(255,204,0)); ;
                 panelLessons.Children.Add(button);
             }
 
             MainFrame.Content = new PageForCours(panelLessons);
+        }
+        private void GoToOffice(object sender, RoutedEventArgs e)
+        {
+            MainFrame.Content = new MainUserOffice(User);
         }
         private void GoToLesson(object sender, RoutedEventArgs e)
         {

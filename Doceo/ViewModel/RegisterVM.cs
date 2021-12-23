@@ -10,20 +10,20 @@ namespace Doceo.ViewModel
 {
     public class RegisterVM :EnterVM
     {
-        public override void DoOpenMainDoceoWindow(List<EnterModel.user> User)
+        public override void DoOpenMainDoceoWindow(EnterModel.user User)
         {
             base.DoOpenMainDoceoWindow(User);
         }
-        public Model.EnterModel Model = new Model.EnterModel();
+        public Model.EnterModel model = new Model.EnterModel();
         public void Registered(object parametr)
         {
-            bool rez = false;
+            
             if (login != "" && password != null)
             {
-                rez = Model.CheckUser(login, password);
+                User = model.CheckUser(login, password);
             }
 
-            if (rez)
+            if (User != null)
             {
 
                 DoOpenMainDoceoWindow(User);

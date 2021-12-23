@@ -35,13 +35,13 @@ namespace Doceo.Model
             }
         }
 
-        internal bool CheckUser(string log, string password)
+        internal user CheckUser(string log, string password)
         {
             using (DataBase.DoceoContext db = new DataBase.DoceoContext())
             {
                 IQueryable<user> check = db.Users.Where(p => p.login == log && p.password == password);
-                int l = check.Count();
-                return !(l == 0);
+                List<user> U = check.Select(L => L).ToList();
+                return U[0];
                 
 
             }

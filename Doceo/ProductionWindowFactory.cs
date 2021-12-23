@@ -9,14 +9,14 @@ namespace Doceo
 {
     public interface IWindowFactory
     {
-        void openMainDoceoWindProgramm(List<Model.EnterModel.user> User);
+        void openMainDoceoWindProgramm(Model.EnterModel.user User);
         void openRegisterWindow();
 
     }
     public class ProductionWindowFactory : IWindowFactory
     {
 
-        public void openMainDoceoWindProgramm(List<Model.EnterModel.user> User)
+        public void openMainDoceoWindProgramm(Model.EnterModel.user User)
         {
            View.MainDoceoWindow window = new View.MainDoceoWindow(User);
            Application.Current.MainWindow.Close();
