@@ -9,7 +9,18 @@
       Title="MainUserOffice">
 
     <Grid Background="#7fc7ff">
-        <StackPanel Margin="39,39,393,332" Background="#1faee9">
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="370*"></ColumnDefinition>
+            <ColumnDefinition Width="300*"></ColumnDefinition>
+            <ColumnDefinition Width="130*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Grid.Row="0" Grid.Column="1" Margin="10" Background="#1faee9" >
             <TextBlock x:Name="login" FontSize="20"></TextBlock>
             <PasswordBox x:Name="pasw" PasswordChar="*" IsEnabled="False"></PasswordBox>
         </StackPanel>

@@ -20,7 +20,9 @@ namespace Doceo.View
         public PageWithLesson(string LessionContent)
         {
             InitializeComponent();
-            TextLesson.Text = LessionContent;
+            //TextLesson.Text = LessionContent;
+            
+           
         }
     }
 }

@@ -9,8 +9,31 @@
       Title="PageWithLesson">
 
     <Grid Background="Azure">
-        <ScrollViewer>
+
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
+        </Grid.RowDefinitions>
+        <!--<ScrollViewer>
             <TextBlock x:Name="TextLesson" Margin="30" />
-        </ScrollViewer>
+        </ScrollViewer>-->
+
+        <DocumentViewer Grid.Row="0"  Name="documentViewerLesson"  >
+            <DocumentViewer.Resources>
+                
+                <Style TargetType="ContentControl">
+                    <Setter Property="Visibility" Value="Collapsed" />
+                </Style>
+
+                
+                <Style TargetType="ToolBar">
+                    <Setter Property="Visibility" Value="Collapsed" />
+                </Style>
+            </DocumentViewer.Resources>
+        </DocumentViewer>
+        <StackPanel Grid.Row="1" Orientation="Horizontal">
+            <Button Content="Тест" Width="100" Margin="5" FontSize="20" Padding="2"></Button>
+        </StackPanel>
+        
     </Grid>
 </Page>
