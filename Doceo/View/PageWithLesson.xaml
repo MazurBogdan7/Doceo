@@ -17,20 +17,11 @@
         <!--<ScrollViewer>
             <TextBlock x:Name="TextLesson" Margin="30" />
         </ScrollViewer>-->
-
-        <DocumentViewer Grid.Row="0"  Name="documentViewerLesson"  >
-            <DocumentViewer.Resources>
-                
-                <Style TargetType="ContentControl">
-                    <Setter Property="Visibility" Value="Collapsed" />
-                </Style>
-
-                
-                <Style TargetType="ToolBar">
-                    <Setter Property="Visibility" Value="Collapsed" />
-                </Style>
-            </DocumentViewer.Resources>
-        </DocumentViewer>
+        <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+        <TextBlock x:Name="TextLessons" Margin="10" FontSize="20">
+            
+        </TextBlock>
+        </ScrollViewer>
         <StackPanel Grid.Row="1" Orientation="Horizontal">
             <Button Content="Тест" Width="100" Margin="5" FontSize="20" Padding="2"></Button>
         </StackPanel>

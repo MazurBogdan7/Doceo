@@ -159,7 +159,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Resourses\" />
+    <Resource Include="Resourses\Lesson№2.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resourses\Lesson№1.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

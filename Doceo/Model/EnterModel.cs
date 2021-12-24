@@ -39,11 +39,11 @@ namespace Doceo.Model
         {
             using (DataBase.DoceoContext db = new DataBase.DoceoContext())
             {
+
                 IQueryable<user> check = db.Users.Where(p => p.login == log && p.password == password);
                 List<user> U = check.Select(L => L).ToList();
-                return U[0];
+                return U.Count != 0 ? U[0] : null;
                 
-
             }
         }
         

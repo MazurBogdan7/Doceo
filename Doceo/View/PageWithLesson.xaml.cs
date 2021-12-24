@@ -17,12 +17,14 @@ namespace Doceo.View
 {
     public partial class PageWithLesson : Page
     {
-        public PageWithLesson(string LessionContent)
+        public PageWithLesson(byte[] LessionContent)
         {
             InitializeComponent();
             //TextLesson.Text = LessionContent;
-            
-           
+
+
+            TextLessons.Text = Encoding.UTF8.GetString(LessionContent); ;
+  
         }
     }
 }

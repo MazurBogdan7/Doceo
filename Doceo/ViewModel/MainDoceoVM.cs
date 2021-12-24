@@ -20,8 +20,7 @@ namespace Doceo.ViewModel
             }
         }
 
-        private
-        Model.DoceoModel Model = new Model.DoceoModel();
+        private Model.DoceoModel Model = new Model.DoceoModel();
 
         public List<string> GetLessions(string nameCurse)
         {
@@ -30,9 +29,9 @@ namespace Doceo.ViewModel
             return namesLessions;
         }
 
-        public string GetLessionContent(int numbLession)
+        public byte[] GetLessionContent(int numbLession)
         {
-            string lession = Model.GetLessonsString(numbLession);
+            byte[] lession = Model.GetLessonsString(numbLession);
 
             return lession;
         }

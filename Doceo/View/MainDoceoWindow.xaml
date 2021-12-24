@@ -5,7 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Doceo.View" xmlns:viewmodel="clr-namespace:Doceo.ViewModel" d:DataContext="{d:DesignInstance Type=viewmodel:MainDoceoVM}"
         mc:Ignorable="d"
-        Title="MainDoceoWindow" Height="450" Width="800">
+        Title="MainDoceoWindow" 
+        Width="900"
+        Height="500"
+        >
     <Window.Resources>
         <Style x:Key="nominate" TargetType="{x:Type Border}">
             <Style.Triggers>

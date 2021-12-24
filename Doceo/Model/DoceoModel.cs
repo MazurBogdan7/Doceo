@@ -45,7 +45,7 @@ namespace Doceo.Model
         {
             private int _number;
             private string _name;
-            private string _text;
+            private byte[] _text;
             private int? _numberCurse;
             private Curse _Curse;
 
@@ -74,7 +74,7 @@ namespace Doceo.Model
                 set { _name = value; }
             }
             
-            public string text
+            public byte[] text
             {
                 get { return _text; }
                 set { _text = value; }
@@ -89,11 +89,11 @@ namespace Doceo.Model
                 return LessonsName;
             }
         }
-        public string GetLessonsString(int numberLesson)
+        public byte[] GetLessonsString(int numberLesson)
         {
             using (DataBase.DoceoContext db = new DataBase.DoceoContext())
             {
-                List<string> LessonText = db.Lessons.Where(L => L.number == numberLesson).Select(L => L.text).ToList();
+                var LessonText = db.Lessons.Where(L => L.number == numberLesson).Select(L => L.text).ToList();
 
                 return LessonText[0];
             }

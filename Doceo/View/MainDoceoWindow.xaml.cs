@@ -24,6 +24,8 @@ namespace Doceo.View
         public MainDoceoWindow(Model.EnterModel.user User)
         {
             InitializeComponent();
+            //this.Height = SystemParameters.PrimaryScreenHeight;
+            //this.Width = SystemParameters.PrimaryScreenWidth;
             this.DataContext = vm;
             this.User = User;
         }
@@ -52,7 +54,7 @@ namespace Doceo.View
         private void GoToLesson(object sender, RoutedEventArgs e)
         {
             int numbLesson = ((Button)sender).Name[6]-'0';
-            string LessionContent = vm.GetLessionContent(numbLesson);
+            byte[] LessionContent = vm.GetLessionContent(numbLesson);
             MainFrame.Content = new PageWithLesson(LessionContent);
         }
     }

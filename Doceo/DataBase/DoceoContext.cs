@@ -10,10 +10,9 @@ namespace Doceo.DataBase
     {
         static DoceoContext()
         {
-            Database.SetInitializer(new MyContextInitializer());
+            Database.SetInitializer<DoceoContext>(new MyContextInitializer());
         }
-        public DoceoContext()
-            :base("DBConnection")
+        public DoceoContext() : base("DBConnection")
         { }
         public DbSet<Model.EnterModel.user> Users { get; set; }
         public DbSet<Model.DoceoModel.Curse> Curses { get; set; }
