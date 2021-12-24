@@ -17,5 +17,8 @@ namespace Doceo.DataBase
         public DbSet<Model.EnterModel.user> Users { get; set; }
         public DbSet<Model.DoceoModel.Curse> Curses { get; set; }
         public DbSet<Model.DoceoModel.Lesson> Lessons { get; set; }
+        public DbSet<Model.DoceoModel.Tasks> Tasks { get; set; }
+        
+
     }
 }

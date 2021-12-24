@@ -9,14 +9,14 @@ namespace Doceo.Model
 {
     public class EnterModel
     {
-        [Table("Users")]
-        public class user 
+        
+        public class user
         {
-            
+
             private int _number;
             private string _login;
             private string _password;
-            
+
             public string login
             {
                 get { return _login; }
@@ -33,6 +33,12 @@ namespace Doceo.Model
                 get { return _number; }
                 set { _number = value; }
             }
+            public ICollection<DoceoModel.Tasks> Tasks { get; set; }
+            public user()
+            {
+                Tasks = new List<DoceoModel.Tasks>();
+            }
+
         }
 
         internal user CheckUser(string log, string password)

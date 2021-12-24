@@ -55,7 +55,7 @@ namespace Doceo.View
         {
             int numbLesson = ((Button)sender).Name[6]-'0';
             byte[] LessionContent = vm.GetLessionContent(numbLesson);
-            MainFrame.Content = new PageWithLesson(LessionContent);
+            MainFrame.Content = new PageWithLesson(numbLesson,LessionContent, User);
         }
     }
 }

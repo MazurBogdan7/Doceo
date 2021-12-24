@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Doceo.DataBase
 {
-    class MyContextInitializer : DropCreateDatabaseIfModelChanges<DoceoContext>
+    class MyContextInitializer : DropCreateDatabaseAlways<DoceoContext>
     {
         protected override void Seed(DoceoContext db)
         {
@@ -15,10 +15,12 @@ namespace Doceo.DataBase
             db.Users.Add(User);
             Model.DoceoModel.Curse curse = new Model.DoceoModel.Curse { numberCurse = 1, name = "C++" };
             db.Curses.Add(curse);
-            Model.DoceoModel.Lesson lesson = new Model.DoceoModel.Lesson { number = 1, numberCurse = 1, name ="Введение в программирование", text = System.IO.File.ReadAllBytes("C:\\Users\\Bogdan\\source\\repos\\Doceo\\Doceo\\Resourses\\Lesson№1.txt") };
+            Model.DoceoModel.Lesson lesson = new Model.DoceoModel.Lesson { numberLesson = 1, numberCurse = 1, name ="Введение в программирование", text = System.IO.File.ReadAllBytes("C:\\Users\\Bogdan\\source\\repos\\Doceo\\Doceo\\Resourses\\Lesson№1.txt") };
             db.Lessons.Add(lesson);
-            Model.DoceoModel.Lesson lesson2 = new Model.DoceoModel.Lesson { number = 2 ,numberCurse = 1, name = "Введение в языки программирования C и С++", text = System.IO.File.ReadAllBytes("C:\\Users\\Bogdan\\source\\repos\\Doceo\\Doceo\\Resourses\\Lesson№2.txt") };
+            Model.DoceoModel.Lesson lesson2 = new Model.DoceoModel.Lesson { numberLesson = 2 ,numberCurse = 1, name = "Введение в языки программирования C и С++", text = System.IO.File.ReadAllBytes("C:\\Users\\Bogdan\\source\\repos\\Doceo\\Doceo\\Resourses\\Lesson№2.txt") };
             db.Lessons.Add(lesson2);
+            Model.DoceoModel.Tasks Task = new Model.DoceoModel.Tasks {numberTask = 1, numberLesson = 1, name = "Тест по \"Введение в программирование\" ", text = System.IO.File.ReadAllBytes("C:\\Users\\Bogdan\\source\\repos\\Doceo\\Doceo\\Resourses\\Task1.txt") };
+            db.Tasks.Add(Task);
             db.SaveChanges();
         }
     }

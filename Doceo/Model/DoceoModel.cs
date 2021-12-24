@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Doceo.Model
 {
-    class DoceoModel
+    public class DoceoModel
     {
         
         public class Curse
@@ -48,6 +48,7 @@ namespace Doceo.Model
             private byte[] _text;
             private int? _numberCurse;
             private Curse _Curse;
+            private ICollection<Tasks> _Tasks;
 
             [ForeignKey("Curse")]
             public int? numberCurse
@@ -62,7 +63,7 @@ namespace Doceo.Model
             }
 
             [Key]
-            public int number
+            public int numberLesson
             {
                 get { return _number; }
                 set { _number = value; }
@@ -79,7 +80,62 @@ namespace Doceo.Model
                 get { return _text; }
                 set { _text = value; }
             }
+            public Lesson()
+            {
+                Task = new List<Tasks>();
+            }
+            public ICollection<Tasks> Task
+            {
+                get { return _Tasks; }
+                set { _Tasks = value; }
+            }
         }
+        public class Tasks
+        {
+            private int _number;
+            private string _name;
+            private byte[] _text;
+            private int _numberLesson;
+            private Lesson _Lesson;
+
+            [ForeignKey("Lesson")]
+            public int numberLesson
+            {
+                get { return _numberLesson; }
+                set { _numberLesson = value; }
+            }
+            public Lesson Lesson
+            {
+                get { return _Lesson; }
+                set { _Lesson = value; }
+
+            }
+            public string name
+            {
+                get { return _name; }
+                set { _name = value; }
+            }
+
+            public byte[] text
+            {
+                get { return _text; }
+                set { _text = value; }
+            }
+
+            [Key]
+            public int numberTask
+            {
+                get { return _number; }
+                set { _number = value; }
+            }
+            public ICollection<EnterModel.user> Users { get; set; }
+            public Tasks()
+            {
+                Users = new List<EnterModel.user>();
+            }
+
+        }
+       
         public List<string> GetLessonsFromDB(string nameCurse)
         {
             using (DataBase.DoceoContext db = new DataBase.DoceoContext())
@@ -93,10 +149,21 @@ namespace Doceo.Model
         {
             using (DataBase.DoceoContext db = new DataBase.DoceoContext())
             {
-                var LessonText = db.Lessons.Where(L => L.number == numberLesson).Select(L => L.text).ToList();
+                var LessonText = db.Lessons.Where(L => L.numberLesson == numberLesson).Select(L => L.text).ToList();
 
                 return LessonText[0];
             }
         }
+       public byte[] GetTaskText(int numbLession)
+        {
+            using (DataBase.DoceoContext db = new DataBase.DoceoContext())
+            {
+                var TaskText = db.Tasks.Where(L => L.numberLesson == numbLession).Select(L => L.text).ToList();
+
+                return TaskText[0];
+            }
+        }
+
+
     }
 }

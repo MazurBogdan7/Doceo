@@ -14,16 +14,15 @@
             <RowDefinition></RowDefinition>
             <RowDefinition Height="50"></RowDefinition>
         </Grid.RowDefinitions>
-        <!--<ScrollViewer>
-            <TextBlock x:Name="TextLesson" Margin="30" />
-        </ScrollViewer>-->
+        
         <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
         <TextBlock x:Name="TextLessons" Margin="10" FontSize="20">
             
         </TextBlock>
         </ScrollViewer>
-        <StackPanel Grid.Row="1" Orientation="Horizontal">
-            <Button Content="Тест" Width="100" Margin="5" FontSize="20" Padding="2"></Button>
+        <StackPanel Grid.Row="1" Orientation="Horizontal" Background="#1faee9">
+            <Button Content="Тест" Width="100" Margin="5" FontSize="20" Padding="2" Background="#ffcc00" Click="GoToTasks"></Button>
+            
         </StackPanel>
         
     </Grid>

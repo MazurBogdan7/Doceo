@@ -35,5 +35,11 @@ namespace Doceo.ViewModel
 
             return lession;
         }
+        public byte[] GetTaskContent(int numbLession)
+        {
+            byte[] task = Model.GetTaskText(numbLession);
+
+            return task;
+        }
     }
 }
