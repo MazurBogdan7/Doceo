@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Doceo.DataBase
 {
-    class MyContextInitializer : DropCreateDatabaseAlways<DoceoContext>
+    class MyContextInitializer : DropCreateDatabaseIfModelChanges<DoceoContext>
     {
         protected override void Seed(DoceoContext db)
         {

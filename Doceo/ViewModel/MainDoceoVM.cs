@@ -33,7 +33,7 @@ namespace Doceo.ViewModel
         {
             byte[] lession = Model.GetLessonsString(numbLession);
 
-            return lession;
+            return lession ?? null;
         }
         public byte[] GetTaskContent(int numbLession)
         {

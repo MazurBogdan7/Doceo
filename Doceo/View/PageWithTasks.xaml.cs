@@ -15,17 +15,51 @@ using System.Windows.Shapes;
 
 namespace Doceo.View
 {
-    /// <summary>
-    /// Логика взаимодействия для PageWithTasks.xaml
-    /// </summary>
+    
     public partial class PageWithTasks : Page
     {
         ViewModel.MainDoceoVM vm = new ViewModel.MainDoceoVM(); 
         public PageWithTasks(int numbLesson, Model.EnterModel.user User)
         {
             InitializeComponent();
+            TextBlock t = new TextBlock
+            {
+                Text = "Теста на этот урок пока нету. Ждите обновлений ;) "
+            };
+            int numbQuestion = 0;
+            List<string> AnswerQuestions = new List<string>();
             byte[] Content = vm.GetTaskContent(numbLesson);
-            Task.Text = Encoding.UTF8.GetString(Content); 
+
+            if (Content != null) 
+            {
+                String TaskLesson = Encoding.UTF8.GetString(Content);
+                
+                string[] Taskf = TaskLesson.Split('\r');
+                numbQuestion = Taskf.Length;
+                for (int i = 0; i != Taskf.Length; i++)
+                {
+                    if (Taskf[i][0] == '\\')
+                    {
+                        Taskf[i].Remove(0, 2);
+                    }
+
+                    var Question = Taskf[i].Split('~');
+                    AnswerQuestions.Add(Question[2]);
+
+                    TextBlock text = new TextBlock { Text = Question[0] };
+                    MainTask.Children.Add(text);
+                    TextBlock text2 = new TextBlock { Text = Question[1] };
+                    MainTask.Children.Add(text2);
+                    TextBox TB = new TextBox { Name = $"Question{i+1}" };
+                    MainTask.Children.Add(TB);
+                }
+
+            }
+            else MainTask.Children.Add(t);
+        }
+        private void EndMyTask(object sender, RoutedEventArgs e)
+        {
+            
         }
     }
 }

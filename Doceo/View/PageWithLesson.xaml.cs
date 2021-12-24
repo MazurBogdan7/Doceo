@@ -25,10 +25,9 @@ namespace Doceo.View
             this.numbLesson = numbLesson;
             InitializeComponent();
 
-            //TextLesson.Text = LessionContent;
-
-            TextLessons.Text = Encoding.UTF8.GetString(LessionContent); 
             
+            TextLessons.Text = LessionContent != null ? Encoding.UTF8.GetString(LessionContent) : "Пока урока на эту тему нет. Ждите обновлений ;)";
+
         }
 
         public EnterModel.user User { get; private set; }

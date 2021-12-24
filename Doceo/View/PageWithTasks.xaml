@@ -9,6 +9,18 @@
       Title="PageWithTasks">
 
     <Grid Background="#7fc7ff">
-        <TextBlock x:Name="Task"></TextBlock>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+        </Grid.RowDefinitions>
+        <ScrollViewer Grid.Row="0" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Hidden">
+            
+            <StackPanel  x:Name="MainTask">
+                
+                
+            </StackPanel>
+            
+        </ScrollViewer>
+        <Button Grid.Row="1" x:Name="EndTask" Content="Завершить" Margin="20" Background="#ffcc00" Click="EndMyTask"></Button>
     </Grid>
 </Page>

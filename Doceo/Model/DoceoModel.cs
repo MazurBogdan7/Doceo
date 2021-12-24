@@ -151,7 +151,7 @@ namespace Doceo.Model
             {
                 var LessonText = db.Lessons.Where(L => L.numberLesson == numberLesson).Select(L => L.text).ToList();
 
-                return LessonText[0];
+                return LessonText.Count != 0 ? LessonText[0] : null;
             }
         }
        public byte[] GetTaskText(int numbLession)
@@ -160,7 +160,7 @@ namespace Doceo.Model
             {
                 var TaskText = db.Tasks.Where(L => L.numberLesson == numbLession).Select(L => L.text).ToList();
 
-                return TaskText[0];
+                return TaskText.Count != 0 ? TaskText[0] : null;
             }
         }
 
